@@ -32,7 +32,18 @@
                 <asp:Label id="lblVerificacion" style="display: none; padding-top: 10px;" runat="server" Text="Tenes que ingresar una localidad..."></asp:Label>
             </section>
             <asp:Button ID="btnGuardarLocalidad" CssClass="btnGuardarLocalidadCss" runat="server" Text="Guardar Localidad" OnClick="btnGuardarLocalidad_Click"/>
+             <br />
+            <asp:Label runat="server" Text="Usuario" style="font: bold; font-size: x-large" ID="lblUsuario"></asp:Label>
+            <br />
+            <asp:Label runat="server" style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
+                <asp:TextBox ID="txtNombre" runat="server" placeholder="Ingrese su Nombre..." Height="16px" style="margin-left: 0px"></asp:TextBox>
+            <br />
+            <asp:Label runat="server" style="padding-right: 10px;" Text="Contraseña: " ID="lblContraseña"></asp:Label>
+                <asp:TextBox ID="txtContraseña" runat="server" placeholder="Ingrese su Contraseña..." style="margin-left: 0px"></asp:TextBox>
         </div>
+     
+        
+                
     </form>
 </body>
 </html>
