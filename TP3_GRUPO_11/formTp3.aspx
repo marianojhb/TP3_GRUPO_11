@@ -46,11 +46,11 @@
             <div class="empty"></div>
 
             <asp:Label runat="server" style="padding-right: 10px;" Text="Nombre de Localidad:"></asp:Label>
-            <asp:TextBox ID="txtBoxLocalidad" runat="server" placeholder="Ingrese localidad..."></asp:TextBox>
+            <asp:TextBox ID="txtBoxLocalidad" runat="server" placeholder="Ingrese localidad..." ValidationGroup="Grupo1"></asp:TextBox>
             <div><asp:Label id="lblVerificacion" class="formatovalidador" style="display: none; padding-top: 10px;" runat="server" Text="Tenes que ingresar una localidad..."></asp:Label></div>
             
             <div class="empty"></div>
-            <asp:Button ID="btnGuardarLocalidad" CssClass="btnGuardarLocalidadCss" runat="server" Text="Guardar Localidad" OnClick="btnGuardarLocalidad_Click"/>
+            <asp:Button ID="btnGuardarLocalidad" CssClass="btnGuardarLocalidadCss" runat="server" Text="Guardar Localidad" OnClick="btnGuardarLocalidad_Click" ValidationGroup="Grupo1"/>
             <div class="empty"></div>
 
             <div class="empty"></div>
@@ -62,22 +62,35 @@
             <div class="empty"></div>
 
             <asp:Label runat="server" Style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
-            <asp:TextBox ID="txtNombre" runat="server" placeholder="Ingrese su Nombre..." Height="16px" style="margin-left: 0px"></asp:TextBox>
+            <asp:TextBox ID="txtNombre" runat="server" placeholder="Ingrese su Nombre..." Height="16px" style="margin-left: 0px" ValidationGroup="Grupo2"></asp:TextBox>
             <div class="formatovalidador"></div>
 
             <asp:Label runat="server" style="padding-right: 10px;" Text="Contraseña: " ID="lblContraseña"></asp:Label>
-            <asp:TextBox ID="txtContraseña" runat="server" placeholder="Ingrese su Contraseña..." style="margin-left: 0px"></asp:TextBox>
+            <asp:TextBox ID="txtContraseña" runat="server" placeholder="Ingrese su Contraseña..." style="margin-left: 0px" ValidationGroup="Grupo2"></asp:TextBox>
             <div class="formatovalidador"></div>
        
             <div>Reingrese contraseña:</div>
-            <asp:TextBox ID="txtReingresoContrasenia" runat="server" placeholder="Reingrese su Contraseña..."></asp:TextBox>
+            <asp:TextBox ID="txtReingresoContrasenia" runat="server" placeholder="Reingrese su Contraseña..." ValidationGroup="Grupo2"></asp:TextBox>
             <div class="formatovalidador">
-                <asp:CompareValidator ID="cvComparaContrasenias" runat="server" ControlToValidate="txtReingresoContrasenia" ControlToCompare="txtContraseña">Las contraseñas no coinciden</asp:CompareValidator>
-                <asp:RequiredFieldValidator ID="rfvReingreso" runat="server" ControlToValidate="txtReingresoContrasenia">Debe reingresar la contraseña</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="cvComparaContrasenias" runat="server" ControlToValidate="txtReingresoContrasenia" ControlToCompare="txtContraseña" ValidationGroup="Grupo2">Las contraseñas no coinciden</asp:CompareValidator>
+                <asp:RequiredFieldValidator ID="rfvReingreso" runat="server" ControlToValidate="txtReingresoContrasenia" ValidationGroup="Grupo2">Debe reingresar la contraseña</asp:RequiredFieldValidator>
             </div>
 
-            <div class="empty"></div>
-            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss"/>
+            <div class="empty">
+                <asp:Label ID="lblCorreo" runat="server" Text="Correo electrónico: "></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txtCorreo" runat="server" ValidationGroup="Grupo2"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="revCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" ValidationGroup="Grupo2">Ingrese un correo válido</asp:RegularExpressionValidator>
+&nbsp;
+                <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="Grupo2">Ingrese un correo</asp:RequiredFieldValidator>
+                <br />
+                <asp:Label ID="lblCP" runat="server" Text="CP: "></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
+                <asp:RegularExpressionValidator ID="revCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^\d{4}$" ValidationGroup="Grupo2">Ingrese un CP válido</asp:RegularExpressionValidator>
+&nbsp;&nbsp;&nbsp;
+                <asp:RequiredFieldValidator ID="rfvCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationGroup="Grupo2">Ingrese un código postal</asp:RequiredFieldValidator>
+            </div>
             <div class="empty"></div>
         
 
@@ -86,6 +99,11 @@
                 
                 --%>
         </div>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss" ValidationGroup="Grupo2"/>
+            </p>
     </form>
 </body>
 </html>
