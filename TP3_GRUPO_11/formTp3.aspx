@@ -61,7 +61,7 @@
             <h3>Usuarios</h3>
             <div class="empty"></div>
 
-            <asp:Label runat="server" Style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
+                        <asp:Label runat="server" Style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
             <asp:TextBox ID="txtNombre" runat="server" placeholder="Ingrese su Nombre..." Height="16px" style="margin-left: 0px" ValidationGroup="Grupo2"></asp:TextBox>
             <div class="formatovalidador"></div>
 
@@ -89,7 +89,9 @@
                 <asp:RegularExpressionValidator ID="revCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^\d{4}$" ValidationGroup="Grupo2">Ingrese un CP válido</asp:RegularExpressionValidator>
 &nbsp;&nbsp;&nbsp;
                 <asp:RequiredFieldValidator ID="rfvCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationGroup="Grupo2">Ingrese un código postal</asp:RequiredFieldValidator>
+                <asp:RangeValidator ID="rvCP" runat="server" ControlToValidate="txtCP" ErrorMessage="Ingrese un CP válido" MaximumValue="9999" MinimumValue="1000"></asp:RangeValidator>
             </div>
+        
         
 
             <%--Mensaje (Mariano): Usamos CSS Grid. Cada fila que se agregue en la tabla del formulario es un conjunto de 3 elementos  (pueden ser div, asp:algo, etc)
@@ -98,9 +100,17 @@
                 --%>
         </div>
         <p>
+            <asp:Label ID="Label2" runat="server" Text="Localidades:"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:DropDownList ID="DDLLocalidades" runat="server" Height="22px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 0px" Width="128px">
+            </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="DDLLocalidades" ErrorMessage="Seleccione una Localidad" ForeColor="Red" ValidationGroup="Grupo2"></asp:RequiredFieldValidator>
+        </p>
+        <p>
             &nbsp;</p>
         <p>
-            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss" ValidationGroup="Grupo2"/>
+            <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss" ValidationGroup="Grupo2" OnClick="btnGuardarUsuario_Click"/>
             </p>
     </form>
 </body>
