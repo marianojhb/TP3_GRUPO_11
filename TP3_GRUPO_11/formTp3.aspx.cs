@@ -12,7 +12,7 @@ namespace TP3_GRUPO_11
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ValidationSettings.UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
