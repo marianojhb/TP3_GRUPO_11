@@ -76,22 +76,20 @@
                 <asp:RequiredFieldValidator ID="rfvReingreso" runat="server" ControlToValidate="txtReingresoContrasenia" ValidationGroup="Grupo2">Debe reingresar la contraseña</asp:RequiredFieldValidator>
             </div>
 
-            <div class="empty">
-                <asp:Label ID="lblCorreo" runat="server" Text="Correo electrónico: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtCorreo" runat="server" ValidationGroup="Grupo2"></asp:TextBox>
+            <div>Correo electrónico:</div>
+            <asp:TextBox ID="txtCorreo" runat="server" ValidationGroup="Grupo2"></asp:TextBox>
+            <div class="formatovalidador">
                 <asp:RegularExpressionValidator ID="revCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$" ValidationGroup="Grupo2">Ingrese un correo válido</asp:RegularExpressionValidator>
-&nbsp;
                 <asp:RequiredFieldValidator ID="rfvCorreo" runat="server" ControlToValidate="txtCorreo" ForeColor="Red" ValidationGroup="Grupo2">Ingrese un correo</asp:RequiredFieldValidator>
-                <br />
-                <asp:Label ID="lblCP" runat="server" Text="CP: "></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
+             </div>
+            
+            <div>CP: </div>
+            <asp:TextBox ID="txtCP" runat="server"></asp:TextBox>
+            <div class="formatovalidador">
                 <asp:RegularExpressionValidator ID="revCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationExpression="^\d{4}$" ValidationGroup="Grupo2">Ingrese un CP válido</asp:RegularExpressionValidator>
 &nbsp;&nbsp;&nbsp;
                 <asp:RequiredFieldValidator ID="rfvCP" runat="server" ControlToValidate="txtCP" ForeColor="Red" ValidationGroup="Grupo2">Ingrese un código postal</asp:RequiredFieldValidator>
             </div>
-            <div class="empty"></div>
         
 
             <%--Mensaje (Mariano): Usamos CSS Grid. Cada fila que se agregue en la tabla del formulario es un conjunto de 3 elementos  (pueden ser div, asp:algo, etc)
