@@ -1,4 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="formTp3.aspx.cs" Inherits="TP3_GRUPO_11.WebForm" %>
+﻿<%@ Page 
+    Language="C#" 
+    AutoEventWireup="true" 
+    CodeBehind="formTp3.aspx.cs" 
+    Inherits="TP3_GRUPO_11.WebForm" 
+    UnobtrusiveValidationMode="None"%>
 
 <!DOCTYPE html>
 
@@ -61,16 +66,32 @@
             <h3>Usuarios</h3>
             <div class="empty"></div>
 
-                        <asp:Label runat="server" Style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
+            <asp:Label runat="server" Style="padding-right: 10px;" Text="Nombre de Usuario: " ID="Label1"></asp:Label>
             <asp:TextBox ID="txtNombre" runat="server" placeholder="Ingrese su Nombre..." Height="16px" style="margin-left: 0px" ValidationGroup="Grupo2"></asp:TextBox>
-            <div class="formatovalidador"></div>
+            <div class="formatovalidador">
+                <asp:RequiredFieldValidator 
+                    ID="requiredNombreUsuario" runat="server" 
+                    ControlToValidate="txtNombre" ValidationGroup="Grupo2" 
+                    Text="Ingrese Nombre de Usario">
+                </asp:RequiredFieldValidator>
+            </div>
 
             <asp:Label runat="server" style="padding-right: 10px;" Text="Contraseña: " ID="lblContraseña"></asp:Label>
-            <asp:TextBox ID="txtContraseña" runat="server" placeholder="Ingrese su Contraseña..." style="margin-left: 0px" ValidationGroup="Grupo2"></asp:TextBox>
-            <div class="formatovalidador"></div>
+            <asp:TextBox 
+                ID="txtContraseña" runat="server" 
+                placeholder="Ingrese su Contraseña..." style="margin-left: 0px" ValidationGroup="Grupo2"
+                TextMode="Password"></asp:TextBox>
+            <div class="formatovalidador">
+                <asp:RequiredFieldValidator 
+                    ID="requiredContrasenia" runat="server" 
+                    ControlToValidate="txtContraseña" ValidationGroup="Grupo2" 
+                    Text="Ingrese una Contraseña">
+                </asp:RequiredFieldValidator>
+            </div>
        
             <div>Reingrese contraseña:</div>
-            <asp:TextBox ID="txtReingresoContrasenia" runat="server" placeholder="Reingrese su Contraseña..." ValidationGroup="Grupo2"></asp:TextBox>
+            <asp:TextBox ID="txtReingresoContrasenia" runat="server" 
+                TextMode="Password" placeholder="Reingrese su Contraseña..." ValidationGroup="Grupo2"></asp:TextBox>
             <div class="formatovalidador">
                 <asp:CompareValidator ID="cvComparaContrasenias" runat="server" ControlToValidate="txtReingresoContrasenia" ControlToCompare="txtContraseña" ValidationGroup="Grupo2">Las contraseñas no coinciden</asp:CompareValidator>
                 <asp:RequiredFieldValidator ID="rfvReingreso" runat="server" ControlToValidate="txtReingresoContrasenia" ValidationGroup="Grupo2">Debe reingresar la contraseña</asp:RequiredFieldValidator>
@@ -111,7 +132,18 @@
             &nbsp;</p>
         <p>
             <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss" ValidationGroup="Grupo2" OnClick="btnGuardarUsuario_Click"/>
-            </p>
+            <span>
+                <asp:Label runat="server" 
+                    ID="lblMostrarUsuario"></asp:Label>
+            </span>
+        </p>
+        <br />
+        <asp:Button
+            ID="btnToInicio"
+            runat="server" Text="Ir a inicio.aspx"
+            ValidationGroup="Grupo3" OnClick="btnToInicio_Click" />
+
+
     </form>
 </body>
 </html>

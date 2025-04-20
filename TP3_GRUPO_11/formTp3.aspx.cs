@@ -58,7 +58,12 @@ namespace TP3_GRUPO_11
 
         protected void btnGuardarUsuario_Click(object sender, EventArgs e)
         {
-
+          lblMostrarUsuario.Text = "Bienvenido " + txtNombre.Text.Trim();
         }
-    }
+
+        protected void btnToInicio_Click(object sender, EventArgs e)
+        {
+           Server.Transfer("Inicio.aspx");
+        }
+  }
 }
