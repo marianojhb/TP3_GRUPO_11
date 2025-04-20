@@ -116,7 +116,7 @@
             <asp:DropDownList ID="DDLLocalidades" runat="server" Height="22px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 0px" Width="128px">
                 <asp:ListItem>--Seleccione una Localidad--</asp:ListItem>
             </asp:DropDownList>
-            <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="DDLLocalidades" ErrorMessage="Seleccione una Localidad" ForeColor="Red" ValidationGroup="Grupo2" InitialValue="--Seleccione un Item--"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="DDLLocalidades" ErrorMessage="Seleccione una Localidad" ForeColor="Red" ValidationGroup="Grupo2" InitialValue="--Seleccione una Localidad--"></asp:RequiredFieldValidator>
 
             <div class="empty"></div>
             <asp:Button ID="btnGuardarUsuario" runat="server" Text="Guardar Usuario" class="btnGuardarLocalidadCss" ValidationGroup="Grupo2" OnClick="btnGuardarUsuario_Click"/>
