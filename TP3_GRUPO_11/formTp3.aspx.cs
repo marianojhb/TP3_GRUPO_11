@@ -16,19 +16,27 @@ namespace TP3_GRUPO_11
         }
 
         protected void btnGuardarLocalidad_Click(object sender, EventArgs e)
-        {
-            string Localidad = txtBoxLocalidad.Text;
-            if (string.IsNullOrEmpty(Localidad))
+        {            
+            lblVerificacion.Text = "";
+            lblVerificacion.Visible = false;
+            lblVerificacion.Style["display"] = "none";
+
+            string Localidad = txtBoxLocalidad.Text.Trim();
+
+            if (string.IsNullOrEmpty(Localidad) || string.IsNullOrWhiteSpace(Localidad))
             {
-
-
-                txtBoxLocalidad.Text = "";
+                lblVerificacion.Text = "Por favor ingrese una localidad.";
+                lblVerificacion.Visible = true;
                 lblVerificacion.Style["display"] = "block";
+                txtBoxLocalidad.Text = "";
+                return;
             }
             else if (Regex.IsMatch(Localidad, @"^\d+$"))
             {
                 lblVerificacion.Text = "Una localidad no puede ser solo números.";
+                lblVerificacion.Visible = true;
                 lblVerificacion.Style["display"] = "block";
+                return;
             }
             else
             {
@@ -40,10 +48,13 @@ namespace TP3_GRUPO_11
                 {
                     DDLLocalidades.Items.Add(new ListItem(Localidad));
                     lblVerificacion.Style["display"] = "none";
+                    lblVerificacion.Text = "";
+                    lblVerificacion.Visible = false;
                 }
                 else
                 {
-                    lblVerificacion.Text = "Esa localidad ya fue agregada.";
+                    lblVerificacion.Visible = true;
+                    lblVerificacion.Text = $"La localidad '{Localidad}' ya fue agregada.";
                     lblVerificacion.Style["display"] = "block";
                 }
 
