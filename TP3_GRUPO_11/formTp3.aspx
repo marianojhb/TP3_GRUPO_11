@@ -116,7 +116,7 @@
             </div>
 
             <asp:Label ID="Label2" runat="server" Text="Localidades:"></asp:Label>
-            <asp:DropDownList ID="DDLLocalidades" runat="server" Height="22px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 0px" Width="128px">
+            <asp:DropDownList ID="DDLLocalidades" runat="server" Height="22px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" style="margin-top: 0px">
                 <asp:ListItem>--Seleccione una Localidad--</asp:ListItem>
             </asp:DropDownList>
             <asp:RequiredFieldValidator ID="rfvLocalidad" runat="server" ControlToValidate="DDLLocalidades" ErrorMessage="Seleccione una Localidad" ForeColor="Red" ValidationGroup="Grupo2" InitialValue="--Seleccione una Localidad--"></asp:RequiredFieldValidator>
