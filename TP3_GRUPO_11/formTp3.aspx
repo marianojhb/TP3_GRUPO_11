@@ -52,9 +52,8 @@
 
             <asp:Label runat="server" style="padding-right: 10px;" Text="Nombre de Localidad:"></asp:Label>
             <asp:TextBox ID="txtBoxLocalidad" runat="server" placeholder="Ingrese localidad..." ValidationGroup="Grupo1" ControlToValidate="txtBoxLocalidad"></asp:TextBox>
-            <div><asp:Label id="lblVerificacion" style="display: none; padding-top: 10px;" runat="server" 
+            <div><asp:Label id="lblVerificacion" style="display: none; " runat="server" 
                 Text="Tenes que ingresar una localidad..."></asp:Label>
-<%--                <asp:RequiredFieldValidator ID="rfvLocalidad2" runat="server" Text="Debe ingresar una localidad" ControlToValidate="txtBoxLocalidad" ValidationGroup="Grupo1"></asp:RequiredFieldValidator>--%>
 
             </div>
             
